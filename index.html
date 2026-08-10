@@ -285,7 +285,10 @@
     <a href="mailto:fisha.build@gmail.com">fisha.build@gmail.com</a>
     <a href="https://www.linkedin.com/in/fish-wong-92a1a6302/" target="_blank" rel="noopener">LinkedIn</a>
   </span>
-  <span>Hong Kong · <span id="local-time"></span></span>
+  <span style="display:flex;align-items:center;gap:10px;">
+    <span>Hong Kong · <span id="local-time"></span></span>
+    <pre id="fish" aria-hidden="true" style="margin:0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;line-height:1.05;color:var(--muted);white-space:pre;"></pre>
+  </span>
 </footer>
 
 <script>
@@ -301,6 +304,31 @@
   }
   updateTime();
   setInterval(updateTime, 30000);
+
+  (function(){
+    var LEFT=[" __v_","(____\\/{"], RIGHT=["  _v__","}\\/____)"];
+    var COLS=14, ROWS=2, el=document.getElementById('fish');
+    if(!el) return;
+    var x=0, dir=1;
+    function frame(){
+      var art = dir>0?RIGHT:LEFT, w=Math.max(art[0].length,art[1].length);
+      x += dir*0.5;
+      if(x+w>=COLS){x=COLS-w;dir=-1;}
+      if(x<=0){x=0;dir=1;}
+      var out=[];
+      for(var r=0;r<ROWS;r++){
+        var row=new Array(COLS).fill(' '), line=art[r]||"";
+        for(var c=0;c<line.length;c++){
+          var p=Math.round(x)+c;
+          if(line[c]!==' '&&p>=0&&p<COLS) row[p]=line[c];
+        }
+        out.push(row.join(''));
+      }
+      el.textContent=out.join('\n');
+    }
+    frame();
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(frame,110);
+  })();
 </script>
 
 </body>
