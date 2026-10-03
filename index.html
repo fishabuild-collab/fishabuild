@@ -52,6 +52,54 @@
     list-style: none;
   }
 
+  .section-head {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--blue);
+    margin: 40px 0 10px;
+  }
+
+  .section-head:first-of-type {
+    margin-top: 0;
+  }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .video-card { text-decoration: none; display: block; }
+  .video-thumb {
+    display: block;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background-color: #e3ded4;
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .video-thumb::after {
+    content: "▶";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    background: rgba(0,0,0,0.18);
+    transition: background 0.15s ease;
+  }
+  .video-card:hover .video-thumb::after { background: rgba(0,0,0,0.32); }
+  .video-cap { display: block; font-size: 12px; color: var(--muted); margin-top: 6px; }
+  @media (max-width: 480px) {
+    .video-grid { grid-template-columns: 1fr; }
+  }
+
   .work-item {
     display: flex;
     justify-content: space-between;
@@ -164,12 +212,55 @@
 
 <hr class="divider">
 
+<h2 class="section-head">Selected Video</h2>
+<div class="video-grid">
+  <a class="video-card" href="https://www.youtube.com/watch?v=jBE0VAZg4CI" target="_blank" rel="noopener">
+    <span class="video-thumb" style="background-image:url('https://img.youtube.com/vi/jBE0VAZg4CI/hqdefault.jpg')"></span>
+    <span class="video-cap">Debate Finale · M+ Museum</span>
+  </a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=s_lLHXA-7N4" target="_blank" rel="noopener">
+    <span class="video-thumb" style="background-image:url('https://img.youtube.com/vi/s_lLHXA-7N4/hqdefault.jpg')"></span>
+    <span class="video-cap">Debate Kick-off</span>
+  </a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=78Xx-O4I3x8" target="_blank" rel="noopener">
+    <span class="video-thumb" style="background-image:url('https://img.youtube.com/vi/78Xx-O4I3x8/hqdefault.jpg')"></span>
+    <span class="video-cap">Pie Party Kick-off</span>
+  </a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=zXSk-qkqX64" target="_blank" rel="noopener">
+    <span class="video-thumb" style="background-image:url('https://img.youtube.com/vi/zXSk-qkqX64/hqdefault.jpg')"></span>
+    <span class="video-cap">Tim Hunt · Trailer</span>
+  </a>
+</div>
+
+<h2 class="section-head">Campaigns &amp; Creative</h2>
 <ul class="work-list">
 
   <li class="work-item">
     <div class="work-left">
+      <a class="work-title" href="https://iabhongkong.com/2025-iabhk-digital-awards-winner-results-announcement" target="_blank" rel="noopener">Just Start</a>
+      <span class="work-desc">Led design, production, and curation of Preface's OOH campaign. IABHK Silver 2025. It outperformed McDonald's &amp; HSBC global agency work, and ran on SOGO, one of the largest outdoor screens in APAC.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2025</span>
+      <span class="work-tag">Campaign</span>
+    </div>
+  </li>
+
+  <li class="work-item">
+    <div class="work-left">
+      <a class="work-title" href="https://www.preface.ai/debate/en/" target="_blank" rel="noopener">Preface AI Debate Campaign</a>
+      <span class="work-desc">Built the campaign site for Preface's citywide AI debate tournament across HK schools. Site, live stream, events and more, launched in 2 weeks.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">Campaign</span>
+    </div>
+  </li>
+
+  <li class="work-item">
+    <div class="work-left">
       <a class="work-title" href="https://www.instagram.com/reel/DanQuZRI3_Q/" target="_blank" rel="noopener">Viral Debate Reel</a>
-      <span class="work-desc">Most-viewed reel from Preface's citywide AI debate campaign. 155K views. Concept, edit, and production.</span>
+      <span class="work-desc">Most-viewed reel from Preface's citywide AI debate campaign. 156K views. Concept, edit, and production.</span>
     </div>
     <div class="work-meta">
       <span class="work-year">2026</span>
@@ -190,45 +281,12 @@
 
   <li class="work-item">
     <div class="work-left">
-      <a class="work-title" href="https://deploybuilder-pass.vercel.app/" target="_blank" rel="noopener">Interactive Experience (WIP)</a>
-      <span class="work-desc">Prototype for an interactive experience site. Built AI-native, work in progress.</span>
+      <span class="work-title">Effie Case Film</span>
+      <span class="work-desc">Produced the Effie Awards case film for the citywide AI campaign, end to end. Built a custom AI video pipeline: script, Remotion, local TTS.</span>
     </div>
     <div class="work-meta">
       <span class="work-year">2026</span>
-      <span class="work-tag">Prototype</span>
-    </div>
-  </li>
-
-  <li class="work-item">
-    <div class="work-left">
-      <a class="work-title" href="https://iabhongkong.com/2025-iabhk-digital-awards-winner-results-announcement" target="_blank" rel="noopener">Just Start</a>
-      <span class="work-desc">Led design, production, and curation of Preface's OOH campaign. IABHK Silver 2025. It outperformed McDonald's &amp; HSBC global agency work, and ran on SOGO, one of the largest outdoor screens in APAC.</span>
-    </div>
-    <div class="work-meta">
-      <span class="work-year">2025</span>
-      <span class="work-tag">Campaign</span>
-    </div>
-  </li>
-
-  <li class="work-item">
-    <div class="work-left">
-      <a class="work-title" href="https://www.instagram.com/reel/DUssE_zkiaD/" target="_blank" rel="noopener">Tim Hunt Interview</a>
-      <span class="work-desc">Solo directed, shot, and edited interview with the 2001 Nobel Prize winner in Physiology or Medicine.</span>
-    </div>
-    <div class="work-meta">
-      <span class="work-year">2026</span>
-      <span class="work-tag">Production</span>
-    </div>
-  </li>
-
-  <li class="work-item">
-    <div class="work-left">
-      <a class="work-title" href="https://www.preface.ai/debate/en/" target="_blank" rel="noopener">Preface AI Debate Campaign</a>
-      <span class="work-desc">Built the campaign site for Preface's citywide AI debate tournament across HK schools. Site, live stream, events and more, launched in 2 weeks.</span>
-    </div>
-    <div class="work-meta">
-      <span class="work-year">2026</span>
-      <span class="work-tag">Campaign</span>
+      <span class="work-tag">Case Film</span>
     </div>
   </li>
 
@@ -245,6 +303,44 @@
 
   <li class="work-item">
     <div class="work-left">
+      <a class="work-title" href="https://www.instagram.com/reel/DUssE_zkiaD/" target="_blank" rel="noopener">Tim Hunt Interview</a>
+      <span class="work-desc">Solo directed, shot, and edited interview with the 2001 Nobel Prize winner in Physiology or Medicine.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">Production</span>
+    </div>
+  </li>
+
+</ul>
+
+<h2 class="section-head">Tools &amp; Systems</h2>
+<ul class="work-list">
+
+  <li class="work-item">
+    <div class="work-left">
+      <a class="work-title" href="synctimer.html">Sync Timer</a>
+      <span class="work-desc">Solo build. Synced, always-on-top (picture-in-picture) event timer: room URLs, QR join, admin-only control. Cut event setup from 90 minutes to 20. Case study →</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">Web App</span>
+    </div>
+  </li>
+
+  <li class="work-item">
+    <div class="work-left">
+      <span class="work-title">Case Study Bot</span>
+      <span class="work-desc">Indie build. Generates publishable case studies from project work.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">AI / Build</span>
+    </div>
+  </li>
+
+  <li class="work-item">
+    <div class="work-left">
       <span class="work-title">Meta Ads System</span>
       <span class="work-desc">Bulk upload workflow via Claude + Meta Ads API: brief to live ad without manual entry. 2.2M impressions, HK$374K managed. Confidential.</span>
     </div>
@@ -253,6 +349,82 @@
       <span class="work-tag">Systems / AI</span>
     </div>
   </li>
+
+  <li class="work-item">
+    <div class="work-left">
+      <a class="work-title" href="https://deploybuilder-pass.vercel.app/" target="_blank" rel="noopener">Interactive Experience (WIP)</a>
+      <span class="work-desc">Prototype for an interactive experience site. Built AI-native, work in progress.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">Prototype</span>
+    </div>
+  </li>
+
+  <li class="work-item">
+    <div class="work-left">
+      <span class="work-title">Whisper Drop</span>
+      <span class="work-desc">Indie build. Local transcription app with strong Cantonese support and tuned config.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">AI / Build</span>
+    </div>
+  </li>
+
+  <li class="work-item">
+    <div class="work-left">
+      <span class="work-title">IG Preview Swiper</span>
+      <span class="work-desc">Indie build. Local content visualiser for planning feed and story sequencing before posting.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">AI / Build</span>
+    </div>
+  </li>
+
+  <li class="work-item">
+    <div class="work-left">
+      <span class="work-title">Video Structure Analyzer</span>
+      <span class="work-desc">Indie build. Remotion-based tool that breaks video pacing and structure into a content-strategy view.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">AI / Build</span>
+    </div>
+  </li>
+
+</ul>
+
+<h2 class="section-head">Events &amp; Community</h2>
+<ul class="work-list">
+
+  <li class="work-item">
+    <div class="work-left">
+      <span class="work-title">3-Day AI Conference</span>
+      <span class="work-desc">Supported production of a 3-day B2B / B2C / B2School event: on-stage video, exhibition, decks, pre and post content. 500+ traffic, major B2B deals closed.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">Event</span>
+    </div>
+  </li>
+
+  <li class="work-item">
+    <div class="work-left">
+      <span class="work-title">Community Hackathon</span>
+      <span class="work-desc">Curated a brand-new experience for 30+ participants end to end: promotion, systems, the behind-the-scenes mechanic, and participant onboarding.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">Community</span>
+    </div>
+  </li>
+
+</ul>
+
+<h2 class="section-head">Film &amp; Production</h2>
+<ul class="work-list">
 
   <li class="work-item">
     <div class="work-left">
