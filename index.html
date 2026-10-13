@@ -162,6 +162,37 @@
     letter-spacing: 0.04em;
   }
 
+  .work-list.collapsible .work-item:nth-child(n+4) { display: none; }
+  .work-list.collapsible.show .work-item:nth-child(n+4) { display: flex; }
+  .show-more {
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; font-size: 13px; color: var(--blue);
+    padding: 10px 0 0; margin: 0;
+  }
+  .show-more:hover { text-decoration: underline; }
+
+  .topnav {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px; flex-wrap: wrap;
+    padding: 12px 0; margin-bottom: 16px;
+    background: rgba(245,241,234,0.92);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+  }
+  .nav-name { font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+  .nav-links { display: flex; gap: 14px; flex-wrap: wrap; }
+  .nav-links a { color: var(--muted); text-decoration: none; }
+  .nav-links a:hover { color: var(--blue); }
+  .section-head { scroll-margin-top: 64px; }
+  .title-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-width: 0; }
+  .pill {
+    font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--blue); background: #e3ecf1;
+    padding: 1px 7px; border-radius: 10px; white-space: nowrap;
+  }
+
   footer {
     margin-top: 64px;
     font-size: 13px;
@@ -195,7 +226,19 @@
 </head>
 <body>
 
-<h1>Colman</h1>
+<nav class="topnav">
+  <a href="#top" class="nav-name">Colman</a>
+  <div class="nav-links">
+    <a href="#video">Video</a>
+    <a href="#writing">Writing</a>
+    <a href="#campaigns">Campaigns</a>
+    <a href="#tools">Tools</a>
+    <a href="#events">Events</a>
+    <a href="#film">Film</a>
+  </div>
+</nav>
+
+<h1 id="top">Colman</h1>
 <p style="color:var(--muted);font-size:13px;margin-top:-20px;margin-bottom:28px;letter-spacing:0.01em;">I build the AI systems behind the campaigns, and the campaigns too.</p>
 
 <p>
@@ -212,7 +255,7 @@
 
 <hr class="divider">
 
-<h2 class="section-head">Selected Video</h2>
+<h2 class="section-head" id="video">Selected Video</h2>
 <div class="video-grid">
   <a class="video-card" href="https://www.youtube.com/watch?v=jBE0VAZg4CI" target="_blank" rel="noopener">
     <span class="video-thumb" style="background-image:url('https://img.youtube.com/vi/jBE0VAZg4CI/hqdefault.jpg')"></span>
@@ -232,8 +275,46 @@
   </a>
 </div>
 
-<h2 class="section-head">Campaigns &amp; Creative</h2>
+<h2 class="section-head" id="writing">Writing</h2>
 <ul class="work-list">
+
+  <li class="work-item">
+    <div class="work-left">
+      <a class="work-title" href="writing/interview-bot/">I built a bot that interviews me</a>
+      <span class="work-desc">How I turn finished work into case studies: an AI that interviews me, one question at a time, so the story stops dying in my notes.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">Essay</span>
+    </div>
+  </li>
+
+  <li class="work-item">
+    <div class="work-left">
+      <a class="work-title" href="case-studies/ai03/">48-Hour Floor Activation</a>
+      <span class="work-desc">Case study: a full-floor event activation at Preface HQ, brief to doors in ~48 hours. The decisions, the craft, and what went wrong.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">Case Study</span>
+    </div>
+  </li>
+
+  <li class="work-item">
+    <div class="work-left">
+      <a class="work-title" href="synctimer.html">Sync Timer</a>
+      <span class="work-desc">Case study: a synced, always-on-top event timer I built solo that cut hackathon setup from 90 minutes to 20.</span>
+    </div>
+    <div class="work-meta">
+      <span class="work-year">2026</span>
+      <span class="work-tag">Case Study</span>
+    </div>
+  </li>
+
+</ul>
+
+<h2 class="section-head" id="campaigns">Campaigns &amp; Creative</h2>
+<ul class="work-list collapsible">
 
   <li class="work-item">
     <div class="work-left">
@@ -313,14 +394,15 @@
   </li>
 
 </ul>
+<button class="show-more">Show all 7 →</button>
 
-<h2 class="section-head">Tools &amp; Systems</h2>
-<ul class="work-list">
+<h2 class="section-head" id="tools">Tools &amp; Systems</h2>
+<ul class="work-list collapsible">
 
   <li class="work-item">
     <div class="work-left">
-      <a class="work-title" href="synctimer.html">Sync Timer</a>
-      <span class="work-desc">Solo build. Synced, always-on-top (picture-in-picture) event timer: room URLs, QR join, admin-only control. Cut event setup from 90 minutes to 20. Case study →</span>
+      <div class="title-row"><a class="work-title" href="synctimer.html">Sync Timer</a><span class="pill">Case study</span></div>
+      <span class="work-desc">Solo build. Synced, always-on-top (picture-in-picture) event timer: room URLs, QR join, admin-only control. Cut event setup from 90 minutes to 20.</span>
     </div>
     <div class="work-meta">
       <span class="work-year">2026</span>
@@ -395,14 +477,15 @@
   </li>
 
 </ul>
+<button class="show-more">Show all 7 →</button>
 
-<h2 class="section-head">Events &amp; Community</h2>
+<h2 class="section-head" id="events">Events &amp; Community</h2>
 <ul class="work-list">
 
   <li class="work-item">
     <div class="work-left">
-      <a class="work-title" href="case-studies/ai03/">48-Hour Floor Activation</a>
-      <span class="work-desc">Full-floor event activation at Preface HQ — brief on Monday, doors on Wednesday. Owned the brief, production and install. Case study →</span>
+      <div class="title-row"><a class="work-title" href="case-studies/ai03/">48-Hour Floor Activation</a><span class="pill">Case study</span></div>
+      <span class="work-desc">Full-floor event activation at Preface HQ — brief on Monday, doors on Wednesday. Owned the brief, production and install.</span>
     </div>
     <div class="work-meta">
       <span class="work-year">2026</span>
@@ -434,7 +517,7 @@
 
 </ul>
 
-<h2 class="section-head">Film &amp; Production</h2>
+<h2 class="section-head" id="film">Film &amp; Production</h2>
 <ul class="work-list">
 
   <li class="work-item">
@@ -456,22 +539,6 @@
     <div class="work-meta">
       <span class="work-year">2021</span>
       <span class="work-tag">YouTube</span>
-    </div>
-  </li>
-
-</ul>
-
-<h2 class="section-head">Writing</h2>
-<ul class="work-list">
-
-  <li class="work-item">
-    <div class="work-left">
-      <a class="work-title" href="writing/interview-bot/">I built a bot that interviews me</a>
-      <span class="work-desc">How I turn finished work into case studies: an AI that interviews me, one question at a time, so the story stops dying in my notes.</span>
-    </div>
-    <div class="work-meta">
-      <span class="work-year">2026</span>
-      <span class="work-tag">Essay</span>
     </div>
   </li>
 
@@ -526,6 +593,14 @@
     frame();
     if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(frame,110);
   })();
+
+  document.querySelectorAll('.show-more').forEach(function(btn){
+    var list = btn.previousElementSibling, total = list.querySelectorAll('.work-item').length;
+    btn.addEventListener('click', function(){
+      var open = list.classList.toggle('show');
+      btn.textContent = open ? 'Show less ↑' : ('Show all ' + total + ' →');
+    });
+  });
 </script>
 
 </body>
